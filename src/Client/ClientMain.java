@@ -17,6 +17,6 @@ public class ClientMain {
             System.err.println("Errore nella connesione del server");
 
         }
-    }
+    } //ciao
 
     }
