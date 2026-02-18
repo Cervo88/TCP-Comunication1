@@ -26,7 +26,7 @@ public class ClientMain {
                     new InputStreamReader(socket.getInputStream())
             );
 
-            out.println("CLIENT: Ciao");
+            out.println("CLIENT: Aggiungi un prodotto al carrello!");
 
             String invio = in.readLine();
             System.out.println("ClIENT: risposta = " + invio);
