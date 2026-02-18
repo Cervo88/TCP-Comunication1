@@ -12,6 +12,7 @@ public class ClientMain {
 
         try {
             Socket socket = new Socket("localhost", 3000);
+            System.out.println("CLIENT: si è connesso al server");
 
             //OutputStream outputStream = socket.getOutputStream();
 
@@ -27,6 +28,7 @@ public class ClientMain {
                     new InputStreamReader(socket.getInputStream())
             );
 
+            System.out.println("CLIENT: il client ha inviato un messaggio");
             out.println("CLIENT: Aggiungi un prodotto al carrello!");
 
             String invio = in.readLine();

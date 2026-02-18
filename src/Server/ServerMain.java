@@ -28,10 +28,10 @@ public class ServerMain {
 
             //lettura richiesta
             String messsaggio = in.readLine();
-            System.out.println("SERVER: richiesta = " + clientSocket + "ha scritto il messaggio: " + messsaggio);
+            System.out.println("SERVER: richiesta = " + clientSocket + "Ha scritto il messaggio, " + messsaggio);
 
 
-            out.println("Messaggio ricevuto nel server");
+            out.println("Messaggio ricevuto dal server");
 
             //chiusura
             in.close();
