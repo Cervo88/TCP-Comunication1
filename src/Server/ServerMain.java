@@ -27,8 +27,8 @@ public class ServerMain {
             );
 
             //lettura richiesta
-            String richiesta = in.readLine();
-            System.out.println("SERVER: richiesta = " + richiesta);
+            String messsaggio = in.readLine();
+            System.out.println("SERVER: richiesta = " + clientSocket + "ha scritto il messaggio: " + messsaggio);
 
 
             out.println("Messaggio ricevuto nel server");
