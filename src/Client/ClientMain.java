@@ -28,11 +28,34 @@ public class ClientMain {
                     new InputStreamReader(socket.getInputStream())
             );
 
+            //Lettura da tastiera
+            BufferedReader tastiera = new BufferedReader(
+                    new InputStreamReader(System.in)
+            );
+
             System.out.println("CLIENT: il client ha inviato un messaggio");
             out.println("CLIENT: Aggiungi un prodotto al carrello!");
 
             String invio = in.readLine();
             System.out.println("ClIENT: risposta = " + invio);
+
+
+
+            String messaggio;
+
+            while (true) {
+                System.out.print("Scrivi un messaggio: ");
+                messaggio = tastiera.readLine();
+
+                out.println(messaggio);
+
+                if (messaggio.equalsIgnoreCase("fine")) {
+                    break;
+                }
+
+                String risposta = in.readLine();
+                System.out.println("SERVER: " + risposta);
+            }
 
             in.close();
             out.close();

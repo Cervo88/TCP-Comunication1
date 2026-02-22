@@ -33,6 +33,20 @@ public class ServerMain {
 
             out.println("Messaggio ricevuto dal server");
 
+            String messaggio;
+
+            while ((messaggio = in.readLine()) != null) {
+
+                if (messaggio.equalsIgnoreCase("fine")) {
+                    break;
+                }
+
+                System.out.println("CLIENT ha scritto: " + messaggio);
+
+                out.println("Ricevuto: " + messaggio);
+            }
+
+
             //chiusura
             in.close();
             out.close();
