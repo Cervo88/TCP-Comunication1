@@ -54,6 +54,10 @@ public class ServerMain {
                 String risposta = tastiera.readLine();
 
                 out.println(risposta);
+
+                if(risposta.equalsIgnoreCase("fine")){
+                    break;
+                }
             }
 
 
