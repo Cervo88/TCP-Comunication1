@@ -26,6 +26,11 @@ public class ServerMain {
                     clientSocket.getOutputStream(), true
             );
 
+            //Lettura da tastiera
+            BufferedReader tastiera = new BufferedReader(
+                    new InputStreamReader(System.in)
+            );
+
             //lettura richiesta
             String messsaggio = in.readLine();
             System.out.println("SERVER: richiesta = " + clientSocket + "Ha scritto il messaggio, " + messsaggio);
@@ -35,15 +40,20 @@ public class ServerMain {
 
             String messaggio;
 
-            while ((messaggio = in.readLine()) != null) {
+            while(true) {
+
+                messaggio = in.readLine();
 
                 if (messaggio.equalsIgnoreCase("fine")) {
                     break;
                 }
 
-                System.out.println("CLIENT ha scritto: " + messaggio);
+                System.out.println("CLIENT: " + messaggio);
 
-                out.println("Ricevuto: " + messaggio);
+                System.out.print("Risposta server: ");
+                String risposta = tastiera.readLine();
+
+                out.println(risposta);
             }
 
 
