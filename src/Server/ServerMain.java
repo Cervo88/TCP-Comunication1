@@ -50,7 +50,7 @@ public class ServerMain {
 
                 System.out.println("CLIENT: " + messaggio);
 
-                System.out.print("Risposta server: ");
+                System.out.print("Risposta SERVER: ");
                 String risposta = tastiera.readLine();
 
                 out.println(risposta);
