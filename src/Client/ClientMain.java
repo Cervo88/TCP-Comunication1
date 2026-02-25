@@ -55,6 +55,10 @@ public class ClientMain {
 
                 String risposta = in.readLine();
                 System.out.println("SERVER: " + risposta);
+
+                if(risposta.equalsIgnoreCase("fine")){
+                    break;
+                }
             }
 
             in.close();
