@@ -1,80 +1,42 @@
 package Server;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
 
 public class ServerMain {
+
     public static void main(String[] args) {
 
-       /* System.out.println("SERVER: inizio esecuzione");
+        Server server = new Server(3000);
+        server.avvioServer();
+        BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
+
         try {
-            ServerSocket server = new ServerSocket(3000);
-            System.out.println("SERVER: in attesa della richiesta del client");
-
-            Socket clientSocket = server.accept();
-            System.out.println("SERVER: il client si è connesso");
-
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(clientSocket.getInputStream())
-            );
-
-            PrintWriter out = new PrintWriter(
-                    clientSocket.getOutputStream(), true
-            );
-
-            //Lettura da tastiera
-            BufferedReader tastiera = new BufferedReader(
-                    new InputStreamReader(System.in)
-            );
-
-            //lettura richiesta
-            String messsaggio = in.readLine();
-            System.out.println("SERVER: richiesta = " + clientSocket + "Ha scritto il messaggio, " + messsaggio);
-
-
-            out.println("Messaggio ricevuto dal server");
-
             String messaggio;
+            String risposta;
 
-            while(true) {
+            while (true) {
 
-                messaggio = in.readLine();
+                messaggio = server.leggi();
 
-                if (messaggio.equalsIgnoreCase("fine")) {
+                if (messaggio == null || messaggio.equalsIgnoreCase("fine"))
                     break;
-                }
 
                 System.out.println("CLIENT: " + messaggio);
 
                 System.out.print("Risposta SERVER: ");
-                String risposta = tastiera.readLine();
+                risposta = tastiera.readLine();
 
-                out.println(risposta);
+                server.scrivi(risposta);
 
-                if(risposta.equalsIgnoreCase("fine")){
+                if (risposta.equalsIgnoreCase("fine"))
                     break;
-                }
             }
 
+            server.chiudi();
 
-            //chiusura
-            in.close();
-            out.close();
-            clientSocket.close();
-            server.close();
-
-            System.out.println("SERVER: chiusura della comunicazione");
-
-        } catch (IOException e) {
-            System.err.println("porta non disponibile," + "Errore nella creazione del connetion port");
+        } catch (Exception e) {
+            System.err.println("Errore: " + e.getMessage());
         }
-
-
-    } */
     }
 }
-

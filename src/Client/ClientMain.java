@@ -1,83 +1,42 @@
 package Client;
 
-import java.io.*;
-import java.net.Socket;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class ClientMain {
 
-
     public static void main(String[] args) {
 
+        Client client = new Client("Client1");
 
-    }
+        if(client.connetti("localhost", 3000) == 0) {
 
-       /* System.out.println("CLIENT: avvio dei client");
+            BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
 
-        try {
-            Socket socket = new Socket("localhost", 3000);
-            System.out.println("CLIENT: si è connesso al server");
+            try {
+                String messaggio;
 
-            //OutputStream outputStream = socket.getOutputStream();
+                while (true) {
+                    System.out.print("Scrivi messaggio: ");
+                    messaggio = tastiera.readLine();
 
-            //Stream scrittura
-            PrintWriter out = new PrintWriter(
-                    socket.getOutputStream(), true
-            );
+                    client.scrivi(messaggio);
 
-            // InputStream inputstream = clientSocket.getInputStream();
+                    if (messaggio.equalsIgnoreCase("fine"))
+                        break;
 
-            //Stream lettura
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream())
-            );
-
-            //Lettura da tastiera
-            BufferedReader tastiera = new BufferedReader(
-                    new InputStreamReader(System.in)
-            );
-
-            System.out.println("CLIENT: il client ha inviato un messaggio");
-            out.println("CLIENT: Aggiungi un prodotto al carrello!");
-
-            String invio = in.readLine();
-            System.out.println("ClIENT: risposta = " + invio);
-
-
-
-            String messaggio;
-
-            while (true) {
-                System.out.print("Scrivi un messaggio: ");
-                messaggio = tastiera.readLine();
-
-                out.println(messaggio);
-
-                if (messaggio.equalsIgnoreCase("fine")) {
-                    break;
+                    client.leggi();
                 }
 
-                String risposta = in.readLine();
-                System.out.println("SERVER: " + risposta);
+                client.chiudi();
 
-                if(risposta.equalsIgnoreCase("fine")){
-                    break;
-                }
+            } catch (Exception e) {
+                System.err.println("Errore: " + e.getMessage());
             }
 
-            in.close();
-            out.close();
-            socket.close();
-
-            System.out.println("CLIENT: chiusura della comunicazione");
-
-
-
-        } catch (IOException e) {
-            System.err.println("Errore nella connesione del server");
-
+        } else {
+            System.out.println("Impossibile connettersi al server.");
         }
     }
-
-} */
-
 }
+
