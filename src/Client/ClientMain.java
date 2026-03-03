@@ -8,7 +8,10 @@ public class ClientMain {
 
     public static void main(String[] args) {
 
-        System.out.println("CLIENT: avvio dei client");
+
+    }
+
+       /* System.out.println("CLIENT: avvio dei client");
 
         try {
             Socket socket = new Socket("localhost", 3000);
@@ -75,4 +78,6 @@ public class ClientMain {
         }
     }
 
-    }
+} */
+
+}

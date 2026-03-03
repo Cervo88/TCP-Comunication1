@@ -10,7 +10,7 @@ import java.net.Socket;
 public class ServerMain {
     public static void main(String[] args) {
 
-        System.out.println("SERVER: inizio esecuzione");
+       /* System.out.println("SERVER: inizio esecuzione");
         try {
             ServerSocket server = new ServerSocket(3000);
             System.out.println("SERVER: in attesa della richiesta del client");
@@ -74,6 +74,7 @@ public class ServerMain {
         }
 
 
+    } */
     }
-    }
+}
 
